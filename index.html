@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Support System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">AI Multi-Domain Guidance</p>
+        <h1>Smart Support System</h1>
+        <p class="hero-text">
+          A professional support hub for health, education, work, technical problem-solving, and conversational AI guidance with voice, camera, and quick reference tools.
+        </p>
+        <div class="hero-badges">
+          <span>Voice Input</span>
+          <span>Camera Insight</span>
+          <span>Reference Finder</span>
+          <span>Live Domain Modes</span>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <div class="pulse-orb"></div>
+        <div class="hero-card">
+          <p class="card-label">Current Focus</p>
+          <h2 id="heroDomainTitle">Hospital Support</h2>
+          <p id="heroDomainSummary">AI-guided health and hospital situation support with emergency-aware suggestions and trusted reference shortcuts.</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <aside class="domain-sidebar">
+        <div class="section-title">
+          <p>Domains</p>
+          <span>Select your support area</span>
+        </div>
+        <div class="domain-list" id="domainList">
+          <button class="domain-card active" data-domain="hospital">
+            <span class="domain-icon">+</span>
+            <span>
+              <strong>Hospital</strong>
+              <small>Health and emergency-aware support</small>
+            </span>
+          </button>
+          <button class="domain-card" data-domain="education">
+            <span class="domain-icon">E</span>
+            <span>
+              <strong>Education</strong>
+              <small>Learning, coding, and study help</small>
+            </span>
+          </button>
+          <button class="domain-card" data-domain="work">
+            <span class="domain-icon">W</span>
+            <span>
+              <strong>Work Profession</strong>
+              <small>Career and office problem-solving</small>
+            </span>
+          </button>
+          <button class="domain-card" data-domain="technical">
+            <span class="domain-icon">&lt;/&gt;</span>
+            <span>
+              <strong>Technical</strong>
+              <small>Device, software, and troubleshooting</small>
+            </span>
+          </button>
+          <button class="domain-card" data-domain="bot">
+            <span class="domain-icon">AI</span>
+            <span>
+              <strong>Bot</strong>
+              <small>Avatar conversation and guidance</small>
+            </span>
+          </button>
+        </div>
+      </aside>
+
+      <section class="workspace">
+        <div class="workspace-top">
+          <div>
+            <p class="section-kicker" id="domainKicker">Hospital Domain</p>
+            <h2 id="panelTitle">Describe your hospital or health situation</h2>
+          </div>
+          <div class="status-chip" id="statusChip">Ready to analyse</div>
+        </div>
+        <p class="live-note" id="liveNote">Checking live AI connection...</p>
+
+        <div class="input-panel">
+          <label for="situationInput" class="input-label">Situation</label>
+          <textarea id="situationInput" placeholder="Explain the situation, symptoms, issue, learning problem, technical error, or message you want the AI to analyse..."></textarea>
+
+          <div class="action-row">
+            <button id="analyseBtn" class="primary-btn">Analyse Situation</button>
+            <button id="voiceBtn" class="secondary-btn">Voice Input</button>
+            <button id="speakBtn" class="secondary-btn">Speak Result</button>
+            <button id="cameraBtn" class="secondary-btn">Open Camera</button>
+          </div>
+
+          <div class="camera-panel" id="cameraPanel" hidden>
+            <video id="cameraFeed" autoplay playsinline></video>
+            <canvas id="photoCanvas" hidden></canvas>
+            <div class="camera-actions">
+              <button id="captureBtn" class="primary-btn">Capture Photo</button>
+              <button id="closeCameraBtn" class="secondary-btn">Close Camera</button>
+            </div>
+            <p id="cameraHint">Capture an image for AI-style visual guidance in supported domains.</p>
+          </div>
+        </div>
+
+        <div class="result-grid">
+          <article class="result-card">
+            <div class="card-top">
+              <h3>AI Response</h3>
+              <span id="analysisTag">No analysis yet</span>
+            </div>
+            <div id="responseOutput" class="response-output">
+              Your guided response will appear here after analysis.
+            </div>
+          </article>
+
+          <article class="result-card">
+            <div class="card-top">
+              <h3>Quick References</h3>
+              <span>Auto-search links</span>
+            </div>
+            <div id="referenceOutput" class="reference-list"></div>
+          </article>
+
+          <article class="result-card">
+            <div class="card-top">
+              <h3>Action Support</h3>
+              <span>Fast next steps</span>
+            </div>
+            <div id="supportOutput" class="support-list"></div>
+          </article>
+        </div>
+
+        <section class="bot-stage" id="botStage">
+          <div class="bot-avatar">
+            <div class="avatar-core" id="avatarCore">
+              <div class="eye left"></div>
+              <div class="eye right"></div>
+              <div class="mouth"></div>
+            </div>
+            <div class="avatar-ring"></div>
+          </div>
+          <div class="bot-copy">
+            <p class="section-kicker">Bot Domain</p>
+            <h3>Interactive AI Conversation</h3>
+            <p id="botMessage">
+              Ask anything in Bot domain and the avatar will respond with a conversational summary, guidance, and a speaking animation.
+            </p>
+            <button id="botTalkBtn" class="primary-btn">Start Bot Reply</button>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
