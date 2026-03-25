@@ -1,8 +1,8 @@
 {
-  "name": "smart-support-system",
+  "name": "situation-support-system",
   "version": "1.0.0",
   "private": true,
-  "scripts": {
+  "scripts": {https://github.com/nageshraut12/todaysss/edit/main/package.json
     "start": "node server.js"
   }
 }
